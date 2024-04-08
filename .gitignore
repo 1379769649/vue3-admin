@@ -3,11 +3,13 @@ logs
 *.log
 
 node_modules
-.DS_Store
 dist
+.DS_Store
 *.local
 
 # Editor directories and files
+types/auto-import.d.ts
+.yaml
 .idea
 *.suo
 *.ntvs*
