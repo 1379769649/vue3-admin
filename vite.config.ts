@@ -2,6 +2,7 @@ import path from 'node:path';
 import { defineConfig,loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig(({mode}) => {
     /** 环境变量 */
@@ -24,7 +25,15 @@ export default defineConfig(({mode}) => {
                 imports: ['vue','@vueuse/core','vue-router'],
                 dts: 'types/auto-import.d.ts',
                 dirs: []
-            })
+            }),
+            // 自动导入使用到的组件
+            Components({
+                dts: path.resolve(__dirname, './types/components.d.ts'),
+                dirs: [
+                    path.resolve(__dirname, './src/components'),
+                ],
+                resolvers: [],
+            }),
         ],
         server: {
             port: 9527,
