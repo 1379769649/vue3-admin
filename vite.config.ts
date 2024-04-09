@@ -4,8 +4,10 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
+import Icons from "unplugin-icons/vite"
+import IconsResolver from "unplugin-icons/resolver"
 import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts';
+import Layouts from 'vite-plugin-vue-layouts'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig(({mode}) => {
@@ -47,6 +49,8 @@ export default defineConfig(({mode}) => {
                 resolvers: [
                     // 自动导入 Naive UI 组件
                     NaiveUiResolver(),
+                    // 自动导入图标
+                    IconsResolver({ prefix: 'i' })
                 ],
             }),
             // 文件路由系统
@@ -62,6 +66,8 @@ export default defineConfig(({mode}) => {
             }),
             // unocss
             UnoCSS(),
+            // iconify图标
+            Icons(),
         ],
         server: {
             port: 9527,

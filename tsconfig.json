@@ -13,7 +13,9 @@
     "types": [
       "vite/client",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts/client",
+//      "unplugin-icons/vite",
+//      "unplugin-icons/resolver"
     ],
     /* Bundler mode */
     "moduleResolution": "bundler",
