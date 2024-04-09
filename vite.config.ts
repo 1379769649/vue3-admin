@@ -8,7 +8,7 @@ import Icons from "unplugin-icons/vite"
 import IconsResolver from "unplugin-icons/resolver"
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig(({mode}) => {
     /** 环境变量 */
@@ -38,7 +38,10 @@ export default defineConfig(({mode}) => {
                 dts: path.resolve(__dirname, './types/auto-import.d.ts'),
                 dirs: [
                     path.resolve(__dirname, './src/stores'),
-                ]
+                ],
+                resolvers: [
+                    ElementPlusResolver(),
+                ],
             }),
             // 自动导入使用到的组件
             Components({
@@ -48,7 +51,7 @@ export default defineConfig(({mode}) => {
                 ],
                 resolvers: [
                     // 自动导入 Naive UI 组件
-                    NaiveUiResolver(),
+                    ElementPlusResolver(),
                     // 自动导入图标
                     IconsResolver({ prefix: 'i' })
                 ],

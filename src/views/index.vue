@@ -7,6 +7,7 @@
   <div class="text-center flex items-center justify-center">
     iconify：
     <i-mdi-account />
+    <el-button type="primary">Primary</el-button>
   </div>
 </template>
 
