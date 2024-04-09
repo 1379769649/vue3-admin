@@ -3,6 +3,7 @@ import { defineConfig,loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import UnoCSS from 'unocss/vite'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -59,6 +60,8 @@ export default defineConfig(({mode}) => {
             Layouts({
                 layoutsDirs: 'src/layouts',
             }),
+            // unocss
+            UnoCSS(),
         ],
         server: {
             port: 9527,

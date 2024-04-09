@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/modules/router'
 import store from '@/modules/pinia'
-import './common/css/tailwind.css'
+import 'virtual:uno.css'
 
 const app = createApp(App)
 app.use(store)

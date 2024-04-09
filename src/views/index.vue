@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="text-[#f00] text-lg">index</div>
+  <div class="text-center text-4 c-#f00">index</div>
 </template>
 
 <style scoped lang="scss">
