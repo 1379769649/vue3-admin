@@ -19,16 +19,23 @@ export default defineConfig(({mode}) => {
         resolve: {
             alias: {
                 '~': path.resolve(__dirname, './src'),
-                '@': path.resolve(__dirname, './types'),
+                '@': path.resolve(__dirname, './src'),
             },
         },
         plugins: [
-            vue(),
+            vue({
+                script: {
+                    defineModel: true,
+                    propsDestructure: true,
+                }
+            }),
             // 自动导入vue方法
             AutoImport({
                 imports: ['vue','@vueuse/core','vue-router'],
-                dts: 'types/auto-import.d.ts',
-                dirs: []
+                dts: path.resolve(__dirname, './types/auto-import.d.ts'),
+                dirs: [
+                    path.resolve(__dirname, './src/stores'),
+                ]
             }),
             // 自动导入使用到的组件
             Components({

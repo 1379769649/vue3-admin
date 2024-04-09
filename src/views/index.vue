@@ -3,5 +3,9 @@
 </script>
 
 <template>
-  <router-view />
+  <div>index</div>
 </template>
+
+<style scoped>
+
+</style>

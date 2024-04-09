@@ -1,5 +1,6 @@
 <script setup lang="ts">
-
+const appStore = useAppStore();
+console.log(appStore.test);
 </script>
 
 <template>
