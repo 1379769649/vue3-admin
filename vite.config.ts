@@ -3,7 +3,9 @@ import { defineConfig,loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import Pages from 'vite-plugin-pages'
+import Layouts from 'vite-plugin-vue-layouts';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig(({mode}) => {
     /** 环境变量 */
@@ -17,11 +19,12 @@ export default defineConfig(({mode}) => {
         resolve: {
             alias: {
                 '~': path.resolve(__dirname, './src'),
-                '@': path.resolve(__dirname, './src'),
+                '@': path.resolve(__dirname, './types'),
             },
         },
         plugins: [
             vue(),
+            // 自动导入vue方法
             AutoImport({
                 imports: ['vue','@vueuse/core','vue-router'],
                 dts: 'types/auto-import.d.ts',
@@ -37,6 +40,17 @@ export default defineConfig(({mode}) => {
                     // 自动导入 Naive UI 组件
                     NaiveUiResolver(),
                 ],
+            }),
+            // 文件路由系统
+            Pages({
+                dirs: 'src/views',
+                extensions: ['vue', 'jsx'],
+                // 排除文件
+                exclude: ['**/components'],
+            }),
+            // 布局
+            Layouts({
+                layoutsDirs: 'src/layouts',
             }),
         ],
         server: {
