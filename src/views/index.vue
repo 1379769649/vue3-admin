@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="w-screen h-screen bg-red-600 flex justify-center items-center text-8xl text-slate-200">index</div>
+  <div class="text-[#f00] text-lg">index</div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
